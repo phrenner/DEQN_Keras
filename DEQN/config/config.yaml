@@ -1,0 +1,19 @@
+hydra: 
+  run:
+    dir: runs/${MODEL_NAME}/model
+seed: 151082
+# can be NEW, LATEST, or a given checkpoint filename
+STARTING_POINT: LATEST
+CHECKPOINT_INTERVAL: 10
+ENABLE_TB: True
+VERBOSE: 1
+MAX_TO_KEEP_NUMBER: 2
+MODEL_NAME: dsge_taylor
+#False-> Simulation; True -> draw 
+initialize_each_episode: True
+sorted_within_batch: False
+error_filename: error_file.txt
+enable_check_numerics: False
+# Loss function
+loss_choice: huber #mse
+reload_optimizer: True # reload optim weights from checkpoint (for the same optim) or use a new one from config
